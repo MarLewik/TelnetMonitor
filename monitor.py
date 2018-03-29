@@ -9,19 +9,16 @@ TIMEOUT = "60"
 #user = raw_input("Enter your remote account: ")
 #password = getpass.getpass()
 
-tn = telnetlib.Telnet()
-now = time.strftime("%c")
+#tn = telnetlib.Telnet()
 
-#tn.write("ls\n")
-#tn.write("exit\n")
 
 while(not time.sleep(5)):
     #code to execute
-    print "Current date & time " + time.strftime("%c")
+    print "Current date & time " + time.strftime("%x %X")
     try:
-        tn.open(HOST,PORT)
+        tn = telnetlib.Telnet(HOST,PORT)
     except:
-        print "Exceptio" + time.strftime("%c")
+        print "Exception" + time.strftime("%x %X")
     tn.read_until("login: ")
     tn.write("Marcin" + "\n")
     tn.read_until("Password: ")
